@@ -61,3 +61,9 @@ Thumbs.db
 !.vscode/extensions.json
 
 /src/generated/prisma
+
+# Prisma Skills & Agent Configs
+.agents/
+.claude/
+.windsurf/
+skills-lock.json

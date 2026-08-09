@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  name      String    @db.VarChar(100)
+  email     String    @unique @db.VarChar(255)
+  password  String    @db.VarChar(255)
+  createdAt DateTime  @default(now()) @map("created_at")
+  expenses  Expense[]
+
+  @@map("users")
+}
+
+model Expense {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  title     String   @db.VarChar(150)
+  amount    Decimal  @db.Decimal(10, 2)
+  category  String   @db.VarChar(50)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relation mapping: Delete expenses when user is deleted
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("expenses")
+}
