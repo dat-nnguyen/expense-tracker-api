@@ -183,8 +183,8 @@ You should see confirmation output:
 
 This project includes integrated **Swagger UI** for testing endpoints directly in your browser.
 
-- **Swagger UI Interface**: `http://localhost:5000/api-docs`
-- **Raw OpenAPI Spec**: `http://localhost:5000/api-docs.json`
+- **Swagger UI Interface**: `http://localhost:3000/api-docs`
+- **Raw OpenAPI Spec**: `http://localhost:3000/api-docs.json`
 
 ### Testing Protected Routes in Swagger UI
 
